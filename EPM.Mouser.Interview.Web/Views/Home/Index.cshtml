@@ -10,9 +10,36 @@
     - use the bootstrap table styling
     - Available stock = Total Stock - Reserved Stock
     - Columns shown:
-        - action => with a link to a placeholder product detail page. 
+        - action => with a link to a placeholder product detail page.
         - Name
         - Total Amount in stock
         - Available stock (this should be orange if < 10 and red < zero)
 
 *@
+
+<table class="table table-bordered table-striped" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Name</th>
+            <th>Total Amount in stock</th>
+            <th>Available stock</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var obj in Model)
+        {
+            string stylecolor = string.Empty;
+            int available = @obj.InStockQuantity - @obj.ReservedQuantity;
+            <tr>
+                <td>
+                    <a asp-controller="Home" asp-action="View" asp-route-id="@obj.Id">View</a>
+                </td>
+                <td>@obj.Name</td>
+                <td>@obj.InStockQuantity</td>
+                <td>@available</td>
+            </tr>
+        }
+    </tbody>
+</table>
