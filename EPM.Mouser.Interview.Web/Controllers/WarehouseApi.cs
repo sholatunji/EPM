@@ -16,7 +16,6 @@ namespace EPM.Mouser.Interview.Web.Controllers
          *  Url: api/warehouse/id
          *  This action should return a single product for an Id
          */
-
         [HttpGet]
         [Route("api/warehouse/{id?}")]
         public async Task<JsonResult> GetProduct(long id)

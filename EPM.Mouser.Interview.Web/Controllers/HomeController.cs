@@ -25,6 +25,5 @@ namespace EPM.Mouser.Interview.Web.Controllers
                 return NotFound();
             return View(product);
         }
-
     }
 }
